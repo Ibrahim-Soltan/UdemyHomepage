@@ -1,20 +1,36 @@
 nav{
-    position: relative;
     border: 2px solid red;
     height: 70px;
-    box-sizing: border-box; 
-    padding-top: auto;
-    padding-bottom: auto;
-    /* The dimensions set to the element will be the actual dimensions, 
-    padding will decrese content space instead of increaing element size*/
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 nav > * {
-    position: absolute;
-    top:25%;
-    height: 50%;
+    cursor: pointer;
+    margin: 0 10px;
+    display: inline-block;
 }
 
+nav > span {
+    font-size: 1rem;
+    color: #1c1d1f;
+}
+
+
+
 .logo{
+    height: 50%;
     margin-left: 20px;
+}
+
+
+.searchbar{
+    height: 2.4rem;
+    border-radius: 30px;
+    border: 3px solid 1c1d1f;
+}
+
+.searchbar, nav > form{
+   width: 100%;
 }
