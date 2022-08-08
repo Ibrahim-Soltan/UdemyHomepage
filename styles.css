@@ -1,19 +1,16 @@
 body{
-    font-family: sans-serif;
+    font-family: "udemy sans",Helvetica,Arial,sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: white;
 }
 body *{
     border: none;
     background: none;
-    font-family: "udemy sans",-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
     margin: 0;
     padding: 0;
 }
 nav{
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0;
-    width: 100%;
     min-width: 620px;
     height: 4.5rem;
     display: flex;
@@ -102,6 +99,47 @@ nav > form{
     padding: 10px 15px;
 }
 
+
+
+header{
+    /* background-color: red; */
+    background-color: #f8f9fb;
+    display: flex;
+    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+    max-width: 1360px;
+    justify-content: stretch;
+    align-items: center;
+}
+
+
+h2{
+    font-family: serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+header > div{
+    padding: 15px 25px 15px 10px;
+    background-color: white;
+    margin-left: 80px;
+    height: 140px;
+    width: 350px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%)
+}
+
+header > img{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
 @media only screen and (max-width: 1080px) {
     #udemyBusiness{
         display: none;
@@ -144,5 +182,17 @@ nav > form{
     
   }
 
-
+  @media only screen and (max-width: 720px) {
+    header > div{
+        width: 100%;
+        box-shadow: none;
+        margin: 0;
+    }
+    header{
+        max-width: none;
+        width: 100%;
+        padding: 0;
+    }
+    
+  }
 
