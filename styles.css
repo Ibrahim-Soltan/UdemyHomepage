@@ -4,12 +4,17 @@ body{
     margin: 0;
     background-color: white;
 }
+
 body *{
     border: none;
     background: none;
     margin: 0;
     padding: 0;
 }
+
+/* Navigation Bar */
+
+
 nav{
     white-space: nowrap;
     /* min-width: 620px; */
@@ -19,9 +24,12 @@ nav{
     align-items: center;
     box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
 }
-#smallscreenIcons, #smallscreenMenu{
+
+#smallscreenIcons,
+#smallscreenMenu{
     display: none;
 }
+
 .logo{
     height: 50%;
     margin-left: 20px;
@@ -45,6 +53,7 @@ nav > button:hover{
     color: blueviolet;
 }
 
+/* Search Bar */
 
 nav > form{
     margin-right: 20px;
@@ -56,6 +65,7 @@ nav > form{
     align-items: center;
     padding: 10px;
 }
+
 .searchbar{
     margin-left: 15px;
     font-size: 1rem;
@@ -67,17 +77,21 @@ nav > form{
 }
 
 
-
-.signup, .login, .language{
+.signup,
+.login,
+.language {
     border: solid rgb(28, 29, 31) 1px;
     color: #1c1d1f;
 }
-.signup, .login{
-    font-weight:bold;
-    
+
+.signup,
+.login {
+    font-weight:bold;   
 }
-.login:hover, .language:hover{
-    background-color: #F5F5F5;
+
+.login:hover,
+.language:hover {
+    background-color: #f5f5f5;
     color: #1c1d1f;
 }
 
@@ -85,6 +99,7 @@ nav > form{
     background-color: #000000;
     color: white;
 }
+
 .login{
     padding: 10px 20px;
 }
@@ -95,12 +110,12 @@ nav > form{
 }
 
 .signup{
-    background-color: #1A1F1F;
+    background-color: #1a1f1f;
     color: white;
     padding: 10px 15px;
 }
 
-
+/* Header */
 
 header{
     background-color: #f8f9fb;
@@ -115,12 +130,12 @@ header{
     align-items: center;
 }
 
-
 h2{
     font-family: serif;
     font-size: 2.2rem;
     margin-bottom: 10px;
 }
+
 header > div{
     padding: 15px 25px 15px 10px;
     background-color: white;
@@ -135,6 +150,8 @@ header > img{
     margin-left: auto;
     margin-right: auto;
 }
+
+/* Main */
 
 main{
     width: 85%;
@@ -157,7 +174,6 @@ main p{
     list-style-type: none;
 }
 
-
 .categoriesList li{
     display: inline;
     margin-right: 15px;
@@ -166,6 +182,7 @@ main p{
     font-family: "udemy sans",Helvetica,Arial,sans-serif;
     cursor: pointer;
 }
+
 .categoriesList li:hover{
     color: black;
 }
@@ -174,6 +191,7 @@ main p{
     color: black ;
     cursor:context-menu;
 }
+
 .category{
     border: 1px solid #d1d7dc;
     padding: 30px 30px;
@@ -182,7 +200,6 @@ main p{
 .category button{
     cursor: pointer;
 }
-
 
 .desc{
     text-overflow: ellipsis;
@@ -200,11 +217,13 @@ main p{
     padding: 8px 8px;
     margin-bottom: 30px;
 }
+
 .category > button:hover{
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     color: #1c1d1f;
 }
 
+/* Course Cards */
 .courses{
     display: flex;
     flex-direction: row;
@@ -228,6 +247,7 @@ main p{
     text-align: left;
     margin-bottom: 6px;
 }
+
 .courseName{
     font-size: 15px;
 }
@@ -237,20 +257,24 @@ main p{
     font-weight: normal;
     color: 	#585858;
 }
+
 .rating{
     color: orange;
 }
+
 .price{
     font-weight: bold;
     color: #000000;
     size: 16px;
 }
+
 .oldPrice{
     text-decoration: line-through;
     font-weight: normal;
     color: #585858;
     size: 16px;
 }
+
 .bestseller{
     background-color: #eaeb93;
     color: #000000;
@@ -259,18 +283,24 @@ main p{
     padding: 5px;
 }
 
+/* Hiding "udemy business" when screen gets smaller */
 @media only screen and (max-width: 1080px) {
     #udemyBusiness{
         display: none;
     }
   }
+
+/* Hiding "udemy teach" when screen gets smaller */
 @media only screen and (max-width: 920px) {
     #udemyTeach{
         display: none;
     }
   }
 
+/* Small Screen */
 @media only screen and (max-width: 800px) {
+    /* Nav bar in small screen */
+
     nav > form, nav > button{
         display: none;
     }
@@ -289,6 +319,7 @@ main p{
     #smallscreenMenu:hover{
         color: #000000;
     }
+
     #smallscreenIcons{
         margin-right: 10px;
     }
@@ -300,8 +331,9 @@ main p{
 
     
   }
-
-  @media only screen and (max-width: 720px) {
+/* Small Screen */
+@media only screen and (max-width: 720px) {
+    /* The div in the header slides down on small screen */
     header > div{
         width: 100%;
         box-shadow: none;
@@ -313,6 +345,7 @@ main p{
         width: 100%;
         padding: 0;
     }
+    /* On small screen courses are displayed one at a time with greater font */
     main{
         width: 90%;
         margin: 0 auto 20px auto;
@@ -322,26 +355,31 @@ main p{
     }
     header > div{
         height: fit-content;
-
     }
+
     .course{
         width: 100%;
     }
+
     .courseName{
         font-size: 22px;
     }
+
     .price{
         font-size: 18px;
     }
+
     .oldPrice{
         font-size: 16px;
     }
+
     .instructor{
         font-size: 16px;
     }
+
     .bestseller{
         font-size: 18px;
     }
     
-  }
+}
 
