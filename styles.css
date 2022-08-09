@@ -11,7 +11,8 @@ body *{
     padding: 0;
 }
 nav{
-    min-width: 620px;
+    white-space: nowrap;
+    /* min-width: 620px; */
     height: 4.5rem;
     display: flex;
     justify-content: flex-start;
@@ -102,7 +103,6 @@ nav > form{
 
 
 header{
-    /* background-color: red; */
     background-color: #f8f9fb;
     display: flex;
     margin: 5px;
@@ -118,7 +118,7 @@ header{
 
 h2{
     font-family: serif;
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 10px;
 }
 header > div{
@@ -136,9 +136,128 @@ header > img{
     margin-right: auto;
 }
 
+main{
+    width: 85%;
+    margin: 40px auto 20px auto;
+}
+
+main h2{
+    font-family: Georgia,Times,"times new roman",serif;
+    margin-bottom: 15px;
+}
+
+main p{
+    font-size: 18px;
+}
+
+.categoriesList{
+    margin-left: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    list-style-type: none;
+}
 
 
+.categoriesList li{
+    display: inline;
+    margin-right: 15px;
+    font-weight: bold;
+    color: #606060;
+    font-family: "udemy sans",Helvetica,Arial,sans-serif;
+    cursor: pointer;
+}
+.categoriesList li:hover{
+    color: black;
+}
 
+#activeCategory{
+    color: black ;
+    cursor:context-menu;
+}
+.category{
+    border: 1px solid #d1d7dc;
+    padding: 30px 30px;
+}
+
+.category button{
+    cursor: pointer;
+}
+
+
+.desc{
+    text-overflow: ellipsis;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 800px;
+    font-size: 16px;
+    
+}
+
+.category > button{
+    border: solid rgb(28, 29, 31) 1px;
+    color: #1c1d1f;
+    font-weight:bold;
+    padding: 8px 8px;
+    margin-bottom: 30px;
+}
+.category > button:hover{
+    background-color: #F5F5F5;
+    color: #1c1d1f;
+}
+
+.courses{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.course{
+    overflow: hidden;
+    margin: 15px 10px;
+    text-overflow: ellipsis;
+    /* border: 1px solid red; */
+    box-sizing: border-box;
+
+    width: 225px;
+    height: fit-content;
+    min-height: 250px;
+}
+
+.course > *{
+    width: 100%;
+    text-align: left;
+    margin-bottom: 6px;
+}
+.courseName{
+    font-size: 15px;
+}
+
+.instructor, .users{
+    font-size: 0.73rem;
+    font-weight: normal;
+    color: 	#585858;
+}
+.rating{
+    color: orange;
+}
+.price{
+    font-weight: bold;
+    color: #000000;
+    size: 16px;
+}
+.oldPrice{
+    text-decoration: line-through;
+    font-weight: normal;
+    color: #585858;
+    size: 16px;
+}
+.bestseller{
+    background-color: #eaeb93;
+    color: #000000;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px;
+}
 
 @media only screen and (max-width: 1080px) {
     #udemyBusiness{
@@ -187,11 +306,41 @@ header > img{
         width: 100%;
         box-shadow: none;
         margin: 0;
+        padding-left: 30px;
     }
     header{
         max-width: none;
         width: 100%;
         padding: 0;
+    }
+    main{
+        width: 90%;
+        margin: 0 auto 20px auto;
+    }
+    h2, main h2{
+        font-size: 1.8rem;
+    }
+    header > div{
+        height: fit-content;
+
+    }
+    .course{
+        width: 100%;
+    }
+    .courseName{
+        font-size: 22px;
+    }
+    .price{
+        font-size: 18px;
+    }
+    .oldPrice{
+        font-size: 16px;
+    }
+    .instructor{
+        font-size: 16px;
+    }
+    .bestseller{
+        font-size: 18px;
     }
     
   }
