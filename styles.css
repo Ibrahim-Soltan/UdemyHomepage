@@ -187,9 +187,9 @@ main p{
     color: black;
 }
 
-#activeCategory{
-    color: black ;
-    cursor:context-menu;
+.activeCategory{
+    color: black !important;
+    cursor:context-menu !important;
 }
 
 .category{

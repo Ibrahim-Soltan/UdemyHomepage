@@ -66,9 +66,49 @@
 			"price":319.99,
 			"oldPrice":1299.99,
 			"bestseller":true
+		}	
+	],
+	"excel":
+	[
+		{
+			"id":1,
+			"name":"Microsoft Excel 2013 Course Beginners/ Intermediate Training",
+			"instructor":"Infinite Skills",
+			"rating":4.6,
+			"users":1615,
+			"price":519.99,
+			"bestseller":false
 		}
-
-		
+		,
+		{
+			"id":2,
+			"name":"Microsoft Excel 2013 Advanced. Online Excel Training Course",
+			"instructor":"Infinite Skills",
+			"rating":4.5,
+			"users":3500,
+			"price":519.99,
+			"bestseller":false
+		}
+		,
+		{
+			"id":3,
+			"name":"Microsoft Excel - From Beginner to Expert in 6 Hours",
+			"instructor":"Todd McLeod",
+			"rating":4.5,
+			"users":24488,
+			"price":269.99,
+			"bestseller":false
+		}
+		,
+		{
+			"id":4,
+			"name":"Sharper skills using Microsoft Excel 2010 for business",
+			"instructor":"Ulrika Hedlund",
+			"rating":4.7,
+			"users":655,
+			"price":229.99,
+			"bestseller":false
+		}
 	]
 }
 

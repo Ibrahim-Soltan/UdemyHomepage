@@ -1,11 +1,14 @@
 let courses;
+let activeCat = document.querySelector(".categoriesList").children[0];
+activeCat.classList.add("activeCategory");
+
 const loadCourses = async ()=>{
     const load = await fetch("http://localhost:3000/courses");
     const res = await load.json();
     courses = res;
 }
 
-const createCourseCard = (courseInfo,category)=>{
+const createCourseCard = (courseInfo,category = activeCat.textContent.toLowerCase())=>{
     const courseCard = document.createElement("div");
     courseCard.classList.add("course");
     const courseImg = document.createElement("img");
@@ -44,12 +47,12 @@ const createCourseCard = (courseInfo,category)=>{
     currentPrice.textContent = `E£${courseInfo.price}`;
     oldPrice.textContent = `E£${courseInfo.oldPrice}`;
     prices.appendChild(currentPrice);
-    prices.appendChild(oldPrice);
+    if(courseInfo.oldPrice)prices.appendChild(oldPrice);
     courseCard.appendChild(prices);
     return courseCard;
 }
 
-const displayCourses = async (category)=>{
+const displayCourses = async (category = activeCat.textContent.toLowerCase())=>{
 
     await loadCourses();
 
@@ -62,9 +65,21 @@ const displayCourses = async (category)=>{
         const courseCard = createCourseCard(course, category);
         coursesDiv.appendChild(courseCard);
     }); 
-
+    document.querySelector(".courses").remove();
     document.querySelector(".category").appendChild(coursesDiv);
 
 }
 
-displayCourses(document.querySelector(".categoriesList").children[0].textContent.toLowerCase());
+const categoryList = document.querySelector(".categoriesList");
+
+categoryList.addEventListener("click",(e)=>{
+    if(activeCat != e.target){
+        activeCat.classList.remove("activeCategory");
+        activeCat = e.target;
+        activeCat.classList.add("activeCategory");
+        displayCourses();
+    }
+})
+
+
+displayCourses();
