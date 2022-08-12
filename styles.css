@@ -260,12 +260,16 @@ main p{
 
 .rating{
     color: orange;
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
 }
 
 .price{
     font-weight: bold;
     color: #000000;
     size: 16px;
+    margin-right: 10px;
 }
 
 .oldPrice{
