@@ -1,4 +1,7 @@
 let courses;
+let messages;
+let desc;
+
 let activeCat = document.querySelector(".categoriesList").children[0];
 activeCat.classList.add("activeCategory");
 
@@ -6,6 +9,44 @@ const loadCourses = async ()=>{
     const load = await fetch("http://localhost:3000/courses");
     const res = await load.json();
     courses = res;
+}
+
+const loadMessages =  async ()=>{
+    const load = await fetch("http://localhost:3000/message");
+    const res = await load.json();
+    messages = res;
+}
+
+const loadDesc =  async ()=>{
+    const load = await fetch("http://localhost:3000/desc");
+    const res = await load.json();
+    desc = res;
+}
+
+
+
+const displayCatMessage = (category = activeCat.textContent.toLowerCase())=>{
+    document.querySelector("#message").innerHTML=messages[category];
+}
+
+const displayCatDesc = (category = activeCat.textContent.toLowerCase())=>{
+    document.querySelector("#desc").innerHTML=desc[category];
+}
+
+const displayCourses = (category = activeCat.textContent.toLowerCase())=>{
+
+    const coursesDiv = document.createElement("div");
+
+
+
+    courses[category].forEach(course => {
+        const courseCard = createCourseCard(course, category);
+        coursesDiv.appendChild(courseCard);
+    }); 
+    document.querySelector("#courses").remove();
+    coursesDiv.id = "courses";
+    document.querySelector("#category").appendChild(coursesDiv);
+
 }
 
 const createCourseCard = (courseInfo,category = activeCat.textContent.toLowerCase())=>{
@@ -52,34 +93,30 @@ const createCourseCard = (courseInfo,category = activeCat.textContent.toLowerCas
     return courseCard;
 }
 
-const displayCourses = async (category = activeCat.textContent.toLowerCase())=>{
-
-    await loadCourses();
-
-    const coursesDiv = document.createElement("div");
-
-    coursesDiv.classList.add("courses");
-
-
-    courses[category].forEach(course => {
-        const courseCard = createCourseCard(course, category);
-        coursesDiv.appendChild(courseCard);
-    }); 
-    document.querySelector(".courses").remove();
-    document.querySelector(".category").appendChild(coursesDiv);
-
-}
-
 const categoryList = document.querySelector(".categoriesList");
-
 categoryList.addEventListener("click",(e)=>{
-    if(activeCat != e.target){
+    if(e.target.localName == "li" && activeCat != e.target){
+        
         activeCat.classList.remove("activeCategory");
         activeCat = e.target;
         activeCat.classList.add("activeCategory");
+        displayCatMessage();
+        displayCatDesc();
         displayCourses();
+        document.querySelector("#explore").innerHTML = `Explore ${activeCat.innerHTML}`;
     }
 })
 
 
-displayCourses();
+
+const start = async ()=>{
+    await loadMessages();
+    displayCatMessage();
+    await loadDesc();
+    displayCatDesc();
+    await loadCourses();
+    displayCourses();   
+    document.querySelector("#explore").innerHTML = `Explore ${activeCat.innerHTML}`;
+}
+
+start();
