@@ -90,6 +90,13 @@ const createCourseCard = (courseInfo)=>{
     prices.appendChild(currentPrice);
     if(courseInfo.oldPrice)prices.appendChild(oldPrice);
     courseCard.appendChild(prices);
+    
+    if(courseInfo.bestseller){
+        const bestsellerSpan = document.createElement("span");
+        bestsellerSpan.textContent = "Bestseller";
+        bestsellerSpan.classList.add("bestseller");
+        courseCard.appendChild(bestsellerSpan);
+    }
     return courseCard;
 }
 
