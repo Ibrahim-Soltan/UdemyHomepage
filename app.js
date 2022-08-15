@@ -5,6 +5,8 @@ let desc;
 let activeCat = document.querySelector(".categoriesList").children[0];
 activeCat.classList.add("activeCategory");
 
+const hide = (elementid)=>{document.querySelector(elementid).classList.add("disappear");}
+const show = (elementid)=>{document.querySelector(elementid).classList.remove("disappear")}
 const loadCourses = async ()=>{
     const load = await fetch("http://localhost:3000/courses");
     const res = await load.json();
@@ -37,8 +39,6 @@ const displayCourses = (category = activeCat.textContent.toLowerCase())=>{
 
     const coursesDiv = document.createElement("div");
 
-
-
     courses[category].forEach(course => {
         const courseCard = createCourseCard(course, category);
         coursesDiv.appendChild(courseCard);
@@ -49,11 +49,11 @@ const displayCourses = (category = activeCat.textContent.toLowerCase())=>{
 
 }
 
-const createCourseCard = (courseInfo,category = activeCat.textContent.toLowerCase())=>{
+const createCourseCard = (courseInfo)=>{
     const courseCard = document.createElement("div");
     courseCard.classList.add("course");
     const courseImg = document.createElement("img");
-    courseImg.src = "assets/"+category+"/course"+courseInfo.id+".jpg";
+    courseImg.src = "assets/"+courseInfo.cat+"/course"+courseInfo.id+".jpg";
     courseCard.appendChild(courseImg);
     const courseName = document.createElement("h4");
     courseName.textContent = courseInfo.name;
@@ -93,11 +93,48 @@ const createCourseCard = (courseInfo,category = activeCat.textContent.toLowerCas
     return courseCard;
 }
 
+
+const filter = (targetKeyWords, courseKeywords)=>{
+    let similarity = 0;
+    for(let i of targetKeyWords){
+        for (let j of courseKeywords){
+            if(i==j) similarity++;
+        }
+    }
+    return similarity;
+}
+
+const search = (keywords)=>{
+    keywords = keywords.toLowerCase();
+    keywords = keywords.split(" ");
+
+    const targetCourses = []
+    for(let catName in courses){
+        let cat = courses[catName];
+        for(let course of cat){
+            
+            let courseName = course.name.toLowerCase();
+            
+            courseName = courseName.split(" ");
+            
+            const similarity = filter(keywords, courseName);
+            course.rank = similarity;
+            if(similarity>0)targetCourses.push(course);
+        }
+    }
+    targetCourses.sort((a, b) => {
+        return b.rank - a.rank;
+    });
+    courses.search = targetCourses;
+}
+
 const categoryList = document.querySelector(".categoriesList");
 categoryList.addEventListener("click",(e)=>{
     if(e.target.localName == "li" && activeCat != e.target){
-        
-        activeCat.classList.remove("activeCategory");
+        document.querySelector("#message").classList.remove("Searchresult");
+        show("#desc");
+        show("#explore");
+        if(activeCat!=null && activeCat!=undefined)activeCat.classList.remove("activeCategory");
         activeCat = e.target;
         activeCat.classList.add("activeCategory");
         displayCatMessage();
@@ -105,8 +142,26 @@ categoryList.addEventListener("click",(e)=>{
         displayCourses();
         document.querySelector("#explore").innerHTML = `Explore ${activeCat.innerHTML}`;
     }
-})
+});
 
+const searchbutton = document.querySelector("#searchbutton");
+const searchbar = document.querySelector(".searchbar");
+
+searchbutton.addEventListener("click",()=>{
+    event.preventDefault();
+    if(searchbar.value != ""){
+        courses.search = [];
+        search(searchbar.value);
+        displayCourses("search");
+        if(activeCat != null)activeCat.classList.remove("activeCategory");
+        activeCat = null;
+        document.querySelector("#message").classList.add("Searchresult");
+        hide("#desc");
+        hide("#explore");
+        document.querySelector("#message").innerHTML = `${courses.search.length} result(s) for "${searchbar.value}"`;
+    }
+
+});
 
 
 const start = async ()=>{

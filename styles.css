@@ -287,6 +287,14 @@ main p{
     padding: 5px;
 }
 
+.disappear{
+    display: none;
+}
+.Searchresult{
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
 /* Hiding "udemy business" when screen gets smaller */
 @media only screen and (max-width: 1080px) {
     #udemyBusiness{
