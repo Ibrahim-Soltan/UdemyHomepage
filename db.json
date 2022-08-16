@@ -282,11 +282,118 @@
 	],
 	"aws certification":
 	[
-
+		{
+			"id":1,
+			"name":"AWS Certified Security Specialty 2022",
+			"instructor":"Zeal Vora",
+			"rating":4.6,
+			"users":5331,
+			"price":369.99,
+			
+			"bestseller":true,
+			"cat":"aws certification"
+		},
+		{
+			"id":2,
+			"name":"Part 1: AWS Certified Solutions Architect SAA C03 [Updated]",
+			"instructor":"Chandra Lingam",
+			"rating":4.6,
+			"users":1571,
+			"price":269.99,
+			"oldPrice":669.99,
+			"bestseller":false,
+			"cat":"aws certification"
+		},
+		{
+			"id":3,
+			"name":"Practice Test AWS Solutions Architect Associate SAA C03",
+			"instructor":"Chandra Lingam",
+			"rating":4.7,
+			"users":2829,
+			"price":269.99,
+			"oldPrice":519.99,
+			"bestseller":false,
+			"cat":"aws certification"
+		},
+		{
+			"id":4,
+			"name":"AWS Certified Solution Architect - Associate",
+			"instructor":"Alan Rodrigues",
+			"rating":4.6,
+			"users":2285,
+			"price":269.99,
+			"oldPrice":829.99,
+			"bestseller":false,
+			"cat":"aws certification"
+		},
+		{
+			"id":5,
+			"name":"AWS Certified Solutions Architect - Associate 2022",
+			"instructor":"Zeal Vora",
+			"rating":4.6,
+			"users":1472,
+			"price":319.99,
+			"bestseller":false,
+			"cat":"aws certification"
+		},
+		{
+			"id":6,
+			"name":"The Ultimate AWS Certified Solutions Architect - Associate",
+			"instructor":"Bernard Golden",
+			"rating":4.2,
+			"users":1467,
+			"price":269.99,
+			"oldPrice":1299.99,
+			"bestseller":false,
+			"cat":"aws certification"
+		}
 	],
 	"drawing":
 	[
-
+		{
+			"id":1,
+			"name":"The Secrets to Drawing",
+			"instructor":"Matthew Fussell",
+			"rating":4.6,
+			"users":3938,
+			"price":229.99,
+			"oldPrice":319.99,
+			"bestseller":false,
+			"cat":"drawing"
+		},
+		{
+			"id":2,
+			"name":"Drawing and Sketching for Beginners",
+			"instructor":"Robin Slee | Art | Illustration | iPad",
+			"rating":4.3,
+			"users":1438,
+			"price":269.99,
+			"oldPrice":319.99,
+			"bestseller":false,
+			"cat":"drawing"
+		},
+		{
+			"id":3,
+			"name":"Building Confidence Through Drawing: Art for Beginners",
+			"instructor":"Em Winn",
+			"rating":4.6,
+			"users":1775,
+			"price":219.99,
+			"oldPrice":269.99,
+			"bestseller":true,
+			"cat":"drawing"
+		},
+		{
+			"id":4,
+			"name":"Art for Kids & Beginners: 15 Easy Drawing & Painting Lessons",
+			"instructor":"Em Winn",
+			"rating":4.6,
+			"users":766,
+			"price":229.99,
+			"oldPrice":269.99,
+			"bestseller":false,
+			"cat":"drawing"
+		}
 	]
 },
 

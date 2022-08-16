@@ -294,6 +294,9 @@ main p{
     font-size: 32px;
     margin-bottom: 10px;
 }
+#searchbutton{
+    cursor: pointer;   
+}
 
 /* Hiding "udemy business" when screen gets smaller */
 @media only screen and (max-width: 1080px) {
