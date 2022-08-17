@@ -140,7 +140,7 @@ header > div{
     padding: 15px 25px 15px 10px;
     background-color: white;
     margin-left: 80px;
-    height: 140px;
+    height: fit-content;
     width: 350px;
     box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%)
 }
