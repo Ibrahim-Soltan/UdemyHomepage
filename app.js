@@ -5,6 +5,8 @@ let messages;
 // The desc is an object that has description for each category eg. "Take one of Udemy’s range of Python courses and learn...".
 let desc;
 
+let cscl = 5;
+
 // The activeCat is the category is displayed.
 let activeCat = document.querySelector(".categoriesList").children[0];
 activeCat.classList.add("activeCategory");
@@ -47,18 +49,41 @@ const displayCatDesc = (category = activeCat.textContent.toLowerCase())=>{
     document.querySelector("#desc").innerHTML=desc[category];
 }
 
-const displayCourses = (category = activeCat.textContent.toLowerCase())=>{
+const displayCourses = (category = activeCat.textContent.toLowerCase(), courseCountRef = 5)=>{
     // The displayCourses function displays the courses of the active category.
 
     // Creating div element to contain the course cards.
     const coursesDiv = document.createElement("div");
+    coursesDiv.classList.add("carousel-inner");
+    
+    let carouselItem = document.createElement("div");
+
+    carouselItem.classList.add("carousel-item");
+    carouselItem.classList.add("active");
+
+    let courseSlide = document.createElement("div");
+    courseSlide.classList.add("courseSlide");
+
+    carouselItem.appendChild(courseSlide);
+    coursesDiv.appendChild(carouselItem);
+   let courseCount = courseCountRef;
 
     courses[category].forEach(course => {
         // courses[category] is an object containing information about the courses of the active category.
         // Building a course card from information passed.
         const courseCard = createCourseCard(course, category);
         // Appending the courseCard to the coursesDiv
-        coursesDiv.appendChild(courseCard);
+        courseCount--;
+        if(courseCount<=0){
+            carouselItem = document.createElement("div");
+            carouselItem.classList.add("carousel-item");
+            courseSlide = document.createElement("div");
+            courseSlide.classList.add("courseSlide");
+            carouselItem.appendChild(courseSlide);
+            coursesDiv.appendChild(carouselItem);
+            courseCount=courseCountRef-1;
+        }
+        courseSlide.appendChild(courseCard);
     }); 
     
     // Remove the old courses.
@@ -66,7 +91,7 @@ const displayCourses = (category = activeCat.textContent.toLowerCase())=>{
     // Applying the styles of the courses container to the new courses container.
     coursesDiv.id = "courses";
     // Placing the new coursesDiv in the page
-    document.querySelector("#category").appendChild(coursesDiv);
+    document.querySelector("#carouselControls").appendChild(coursesDiv);
 
 }
 
@@ -147,7 +172,7 @@ const filter = (targetKeyWords, courseKeywords)=>{
     let similarity = 0;
     for(let i of targetKeyWords){
         for (let j of courseKeywords){
-            if(i==j) similarity++;
+            if(i.includes(j) || j.includes(i)) similarity++;
         }
     }
     return similarity;
@@ -196,7 +221,7 @@ categoryList.addEventListener("click",(e)=>{
         // Display the category message, category description and courses of the active category. 
         displayCatMessage();
         displayCatDesc();
-        displayCourses();
+        displayCourses(activeCat.textContent.toLowerCase(),cscl);
         document.querySelector("#explore").innerHTML = `Explore ${activeCat.innerHTML}`;
     }
 });
@@ -226,6 +251,34 @@ searchbutton.addEventListener("click",()=>{
     }
 
 });
+
+
+
+
+function checkMediaQuery() {
+    // If the inner width of the window is greater then 768px
+    if(window.innerWidth>=1300 && cscl!=5){
+        cscl = 5;
+        displayCourses(activeCat.textContent.toLowerCase(),cscl);
+    }
+    if(window.innerWidth>1000 && window.innerWidth<1300 && cscl!=4){
+        cscl = 4;
+        displayCourses(activeCat.textContent.toLowerCase(),cscl);
+    }
+    if(window.innerWidth>800 && window.innerWidth<1000 && cscl !=3){
+        cscl = 3;
+        displayCourses(activeCat.textContent.toLowerCase(),cscl);
+    }
+    if(window.innerWidth<800 && cscl != 2){
+        cscl = 2;
+        displayCourses(activeCat.textContent.toLowerCase(),cscl);
+    }
+  }
+
+  // Add a listener for when the window resizes
+window.addEventListener('resize', checkMediaQuery);
+
+
 
 
 const start = async ()=>{

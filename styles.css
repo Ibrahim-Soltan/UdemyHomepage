@@ -166,7 +166,9 @@ main h2{
 main p{
     font-size: 18px;
 }
-
+section{
+    margin-bottom: 10px;
+}
 .categoriesList{
     margin-left: 5px;
     margin-top: 15px;
@@ -223,12 +225,17 @@ main p{
     color: #1c1d1f;
 }
 
+#carouselControls
 /* Course Cards */
 #courses{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 
 .course{
     overflow: hidden;
@@ -285,6 +292,12 @@ main p{
     font-weight: bold;
     font-size: 14px;
     padding: 5px;
+}
+
+.courseSlide{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .disappear{
@@ -398,3 +411,13 @@ main p{
     
 }
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #1a1f1f;
+}
+.carousel-control-prev, .carousel-control-prev-icon{
+    margin-left: 0;
+}
+.carousel-control-next, .carousel-control-next-icon{
+    margin-right: 0;
+}

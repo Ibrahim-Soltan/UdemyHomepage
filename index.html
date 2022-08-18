@@ -85,7 +85,52 @@
           <h3 id="message"></h3>
           <p id="desc"></p>
           <button id="explore"></button>
-          <div id="courses"></div>
+          <div
+            id="carouselControls"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div id="courses" class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="courseSlide">
+                  <div>
+                    <img src="course1.jpg" alt="image" />
+                  </div>
+                  <div>
+                    <img src="course2.jpg" alt="image" />
+                  </div>
+                  <div>
+                    <img src="course3.jpg" alt="image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselControls"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselControls"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
       </section>
       <section>
