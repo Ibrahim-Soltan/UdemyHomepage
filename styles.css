@@ -225,7 +225,18 @@ section{
     color: #1c1d1f;
 }
 
-#carouselControls
+/* Carousel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #1a1f1f;
+}
+.carousel-control-prev, .carousel-control-prev-icon{
+    margin-left: 0;
+}
+.carousel-control-next, .carousel-control-next-icon{
+    margin-right: 0;
+}
+
 /* Course Cards */
 #courses{
     margin-left: auto;
@@ -411,13 +422,3 @@ section{
     
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: #1a1f1f;
-}
-.carousel-control-prev, .carousel-control-prev-icon{
-    margin-left: 0;
-}
-.carousel-control-next, .carousel-control-next-icon{
-    margin-right: 0;
-}

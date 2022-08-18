@@ -5,6 +5,7 @@ let messages;
 // The desc is an object that has description for each category eg. "Take one of Udemy’s range of Python courses and learn...".
 let desc;
 
+// The number of courses per slide in the carousel
 let cscl = 5;
 
 // The activeCat is the category is displayed.
@@ -256,26 +257,25 @@ searchbutton.addEventListener("click",()=>{
 
 
 function checkMediaQuery() {
-    // If the inner width of the window is greater then 768px
+    // Making the carousel responsive
     if(window.innerWidth>=1300 && cscl!=5){
         cscl = 5;
-        displayCourses(activeCat.textContent.toLowerCase(),cscl);
+        displayCourses(activeCat==null?"search":activeCat.textContent.toLowerCase(),cscl);
     }
     if(window.innerWidth>1000 && window.innerWidth<1300 && cscl!=4){
         cscl = 4;
-        displayCourses(activeCat.textContent.toLowerCase(),cscl);
+        displayCourses(activeCat==null?"search":activeCat.textContent.toLowerCase(),cscl);
     }
     if(window.innerWidth>800 && window.innerWidth<1000 && cscl !=3){
         cscl = 3;
-        displayCourses(activeCat.textContent.toLowerCase(),cscl);
+        displayCourses(activeCat==null?"search":activeCat.textContent.toLowerCase(),cscl);
     }
     if(window.innerWidth<800 && cscl != 2){
         cscl = 2;
-        displayCourses(activeCat.textContent.toLowerCase(),cscl);
+        displayCourses(activeCat==null?"search":activeCat.textContent.toLowerCase(),cscl);
     }
   }
 
-  // Add a listener for when the window resizes
 window.addEventListener('resize', checkMediaQuery);
 
 
